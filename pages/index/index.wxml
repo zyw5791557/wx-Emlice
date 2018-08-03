@@ -1,15 +1,44 @@
 <!-- index.wxml -->
 <view class="container">
-    <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-            获取头像昵称
-        </button>
-        <block wx:else>
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
-    </view>
-    <view class="usermotto">
-        <text class="user-motto">{{motto}}</text>
-    </view>
+   <view class="card-box main-bg">
+        <view class="circle-box">
+            <view class="circle-core"></view>
+            <view class="circle-info">
+                <view 
+                    wx:for="{{ iconList }}" 
+                    wx:key="{{ index }}" 
+                    class="item {{ item.class }}" 
+                    data-methods-name="{{ item.methods }}"
+                    bind:tap="eventTrigger">
+                    <text class="iconfont {{ item.icon }} icon"></text>
+                    <text class="text">{{ item.text }}</text>
+                </view>
+            </view>
+        </view>
+        <view class="user-card">
+            <open-data class="avatar" type="userAvatarUrl"></open-data>
+            <view class="user-info">
+                <open-data class="card-name" type="userNickName"></open-data>
+                <text class="card-company">{{ totalData.company }}</text>
+                <text class="card-caller">访客：{{ totalData.visitor }}</text>
+            </view>
+        </view>
+        <view class="button-box" bind:tap="showModel">
+            <text class="iconfont icon-ico-two-up-arrow"></text>
+        </view>
+        <view class="model-info {{ row }}">
+            <view class="text-info">
+                <view class="item" wx:for="{{ modelInfo }}" wx:key="{{ index }}">
+                    <text class="label">{{ item.label }}</text>
+                    <view class="value">
+                        <text>{{ item.value }}</text>
+                        <view class="button" wx:if="{{ item.button }}">加{{ item.label }}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="return-box" bind:tap="showModel">
+                <text class="return">返回</text>
+            </view>
+        </view>
+   </view>
 </view>

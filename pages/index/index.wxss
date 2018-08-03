@@ -1,22 +1,324 @@
 /**index.wxss**/
 
-.userinfo {
+@import '../../styles/iconfont.wxss';
+
+/* 名片背景 */
+.main-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(http://asset.shaozi.com/gw/m/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+/* 查看更多信息 */
+.button-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    text-align: center
+}
+
+.button-box text {
+    display: inline-block;
+    font-size: 50rpx;
+    animation: waggle 1.5s linear infinite;
+    -webkit-animation: waggle 1.5s linear infinite;
+}
+
+@keyframes waggle {
+    0% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(0, -8px);
+    }
+    20% {
+        transform: translate(0, 8px);
+    }
+    30% {
+        transform: translate(0, -5px);
+    }
+    40% {
+        transform: translate(0, 5px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes waggle {
+    0% {
+        -webkit-transform: translate(0, 0);
+    }
+    10% {
+        -webkit-transform: translate(0, -8px);
+    }
+    20% {
+        -webkit-transform: translate(0, 8px);
+    }
+    30% {
+        -webkit-transform: translate(0, -5px);
+    }
+    40% {
+        -webkit-transform: translate(0, 5px);
+    }
+    50% {
+        -webkit-transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+/* user-card */
+.user-card {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.user-card .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-card .user-info {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-left: 10px;
 }
 
-.userinfo-avatar {
-    width: 128rpx;
-    height: 128rpx;
-    margin: 20rpx;
+.user-card .user-info text {
+    flex-grow: 1;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* circle */
+.circle-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 130px)
+}
+
+.circle-core {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    border: 5px solid rgba(0,0,0,.1);
+    animation: circle-core 1s ease-in-out 0.5s alternate forwards
 }
 
-.userinfo-nickname {
-    color: #aaa;
+.circle-core::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    border-radius: 50%;
+    animation: circle-core-before 1s ease-in-out 1s alternate forwards
 }
 
-.usermotto {
-    margin-top: 200px;
+.circle-core::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    border: 5px solid rgba(156, 58, 93, 0.7);
+    background: rgba(156, 58, 93, 0.6)
+}
+
+@keyframes circle-core {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(2)
+    }
+}
+
+@keyframes circle-core-before {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(4)
+    }
+}
+
+/* circle-info */
+.circle-info {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(180deg) translate(0, -150px);
+    height: 60px;
+    transform-origin: right center;
+    animation: circle-info 1s ease-in-out 1s alternate forwards
+}
+
+.circle-info .item {
+    margin: auto;
+    width: 110px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.circle-info .item .icon {
+    font-size: 46rpx;
+    display: inline-block;
+    background: #9c3a5d;
+    color: #fff;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    box-sizing: content-box;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.circle-info .item .text {
+    color: #fff;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.circle-info .a {
+    margin-right: 0;
+}
+
+.circle-info .b {
+    margin-right: 70px;
+}
+
+.circle-info .c {
+    margin-right: 100px;
+}
+
+@keyframes circle-info {
+    from {
+        transform: rotate(180deg) translate(0, -150px);
+    }
+    to {
+        transform: rotate(0deg) translate(0, -150px);
+    }
+}
+
+/* model-info */
+.model-info {
+    position: absolute;
+    top: 100%;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s;
+    background: rgba(0,0,0,.5);
+}
+
+.model-info .text-info {
+    width: 100%;
+    height: 90%;
+    padding: 0 2%;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+}
+
+.text-info .item {
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #eee;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 10px;
+    position: relative;
+    background-color: rgba(0,0,0,.7);
+    display: flex;
+    flex-direction: column;
+}
+
+.text-info .item text,
+.text-info .item view {
+    line-height: 30px;
+    font-size: 28rpx;
+}
+
+.text-info .item .label{
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    font-size: 12px;
+}
+
+.text-info .item .value{
+    line-height: 20px;
+    display: block;
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+}
+
+.text-info .item .value .button {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    float: right;
+    width: 60px;
+    height: 20px;
+    line-height: 19px;
+    color: #eee;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    bottom: 10px;
+}
+
+.model-info.row {
+    z-index: 3;
+    top: 0;
+}
+
+.model-info .return-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(0, 0, 0, .7);
+    text-align: center;
+}
+
+.return-box .return {
+    color: #fff;
+    font-size: 28rpx;
 }
