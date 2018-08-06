@@ -1,3 +1,6 @@
 {
-    "disableScroll": true
+    "disableScroll": true,
+    "usingComponents": {
+        "circle-box": "../../components/circle-box/circle-box"
+    }
 }

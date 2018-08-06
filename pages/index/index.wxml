@@ -1,20 +1,7 @@
 <!-- index.wxml -->
 <view class="container">
    <view class="card-box main-bg">
-        <view class="circle-box">
-            <view class="circle-core"></view>
-            <view class="circle-info">
-                <view 
-                    wx:for="{{ iconList }}" 
-                    wx:key="{{ index }}" 
-                    class="item {{ item.class }}" 
-                    data-methods-name="{{ item.methods }}"
-                    bind:tap="eventTrigger">
-                    <text class="iconfont {{ item.icon }} icon"></text>
-                    <text class="text">{{ item.text }}</text>
-                </view>
-            </view>
-        </view>
+       <circle-box iconList="{{ iconList }}"></circle-box>
         <view class="user-card">
             <open-data class="avatar" type="userAvatarUrl"></open-data>
             <view class="user-info">

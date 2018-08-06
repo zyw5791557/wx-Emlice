@@ -1,0 +1,9 @@
+<view class="circle-box">
+    <view class="circle-core"></view>
+    <view class="circle-info">
+        <view wx:for="{{ iconList }}" wx:key="{{ index }}" class="item {{ item.class }}" data-methods-name="{{ item.methods }}" bind:tap="eventTrigger">
+            <text class="iconfont {{ item.icon }} icon"></text>
+            <text class="text">{{ item.text }}</text>
+        </view>
+    </view>
+</view>

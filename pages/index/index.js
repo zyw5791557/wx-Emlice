@@ -7,6 +7,7 @@ import { _authHandle } from '../../utils/authorize.js'
 
 Page({
     data: {
+        animationStart: false,
         totalData: {
             company: '厦门哨子科技',
             address: '福建省厦门市思明区台南路73号',
@@ -145,6 +146,8 @@ Page({
         }
     },
     onLoad() {
-
+        this.setData({
+            animationStart: true
+        })
     }
 })
